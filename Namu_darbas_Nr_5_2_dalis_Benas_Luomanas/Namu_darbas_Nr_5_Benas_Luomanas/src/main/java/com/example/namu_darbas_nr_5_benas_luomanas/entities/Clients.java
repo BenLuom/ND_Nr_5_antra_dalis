@@ -1,6 +1,7 @@
 package com.example.namu_darbas_nr_5_benas_luomanas.entities;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="Clients")
@@ -23,6 +24,9 @@ public class Clients {
 
     @Column
     private Integer personal_number;
+
+    @OneToMany(mappedBy = "Clients")
+    private List<Registrations> Registrations;
 
     public Clients() {
     }
@@ -81,6 +85,14 @@ public class Clients {
 
     public void setPersonal_number(Integer personal_number) {
         this.personal_number = personal_number;
+    }
+
+    public List<com.example.namu_darbas_nr_5_benas_luomanas.entities.Registrations> getRegistrations() {
+        return Registrations;
+    }
+
+    public void setRegistrations(List<com.example.namu_darbas_nr_5_benas_luomanas.entities.Registrations> registrations) {
+        this.Registrations = registrations;
     }
 
     @Override

@@ -20,7 +20,6 @@ public class ClientsController {
     @GetMapping("/")
     public String clients(Model model){
         List<Clients> clients= clientsRepository.findAll();
-        model.addAttribute("clients", clients);
         return "clients_list";
     }
 
